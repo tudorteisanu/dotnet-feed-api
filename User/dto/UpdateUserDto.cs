@@ -1,7 +1,7 @@
 ﻿using System;
 namespace feedApi.User.dto
 {
-	public class CreateUserDto
+	public class UpdateUserDto
 	{
         public string FirstName { get; set; }
     }

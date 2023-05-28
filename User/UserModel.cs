@@ -1,13 +1,20 @@
-﻿namespace feed_api;
+﻿using System.ComponentModel.DataAnnotations;
 
-public class WeatherForecast
+namespace feedApi.Users;
+
+public class User
 {
-    public DateOnly Date { get; set; }
+    [Key]
+    public int id { get; set; }
 
-    public int TemperatureC { get; set; }
+    public DateTime CreatedDate { get; set; } = DateTime.Now.ToUniversalTime();
 
-    public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
+    public string FirstName { get; set; }
 
-    public string? Summary { get; set; }
+    public string LastName { get; set; }
+
+    public string Email { get; set; }
+
+    public string Password { get; set; }
 }
 

@@ -1,9 +1,8 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace feedApi.User.dto
 {
-	public class CreateUserDto
+	public class UserResponseDto
     {
         [Required]
         [StringLength(50, MinimumLength = 3)]
@@ -12,8 +11,6 @@ namespace feedApi.User.dto
         [Required]
         [StringLength(50, MinimumLength = 3)]
         public string Email { get; set; }
-
-
     }
 }
 

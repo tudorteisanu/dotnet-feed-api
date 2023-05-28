@@ -1,22 +1,14 @@
-﻿using System;
-
-namespace feedApi.User
-
+﻿namespace feedApi.Users
 {
-	public class UserService
+    public class UserService : GenericService<User>, IUserService
     {
-
-        private readonly UserRepository userRepository;
-
-        public UserService(UserRepository userRepository)
+        public UserService(AppDbContext appDbContext) : base(appDbContext)
         {
-            this.userRepository = userRepository;
         }
 
-        public IEnumerable<UserModel> GetAll()
+        public User? FindByEmail(string email)
         {
-            return this.userRepository.GetAll();
+            return this.repository.Single(user => user.Email == email);
         }
     }
 }
-

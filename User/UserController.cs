@@ -1,33 +1,25 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using feedApi.User.dto;
+using Microsoft.AspNetCore.Mvc;
 
-namespace feed_api.Controllers;
+namespace feedApi.Users;
 
 [ApiController]
 [Route("[controller]")]
-public class WeatherForecastController : ControllerBase
+public class UserController : ControllerBase
 {
-    private static readonly string[] Summaries = new[]
-    {
-        "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-    };
+    private readonly ILogger<UserController> _logger;
+    private readonly IUserService userService;
 
-    private readonly ILogger<WeatherForecastController> _logger;
-
-    public WeatherForecastController(ILogger<WeatherForecastController> logger)
+    public UserController(ILogger<UserController> logger, IUserService userService)
     {
         _logger = logger;
+        this.userService = userService;
     }
 
-    [HttpGet(Name = "GetWeatherForecast")]
-    public IEnumerable<WeatherForecast> Get()
+    [HttpGet(Name = "FindUsers")]
+    public IEnumerable<User> FindAll()
     {
-        return Enumerable.Range(1, 5).Select(index => new WeatherForecast
-        {
-            Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-            TemperatureC = Random.Shared.Next(-20, 55),
-            Summary = Summaries[Random.Shared.Next(Summaries.Length)]
-        })
-        .ToArray();
+        return  this.userService.Find();
     }
 }
 
