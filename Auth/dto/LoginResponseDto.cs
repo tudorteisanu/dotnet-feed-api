@@ -1,19 +1,17 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.Text.Json;
 
 namespace feedapi.Auth.dto
 {
 	public class LoginResponseDto
 	{
+        public String token { get; set; }
 
-        [Required]
-        [EmailAddress]
-        [MinLength(8)]
-        public String email { set; get; }
-
-        [Required]
-        [MaxLength(256),MinLength(8)]
-        public String password { set; get; }
+        public LoginResponseDto(String token)
+        {
+            this.token = token;
+        }
     }
 }
 

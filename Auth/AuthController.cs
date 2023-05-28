@@ -33,15 +33,15 @@ namespace JWTAuth
             }
 
 
-            var isValidPassword = BCrypt.Net.BCrypt.Verify(userLogin.password, user.Password);
+            //var isValidPassword = BCrypt.Net.BCrypt.Verify(userLogin.password, user.Password);
 
-            if (!isValidPassword)
+            if (userLogin.password != user.Password)
             {
                 return Unauthorized("Invalid Credentials");
             }
 
             var token = GenerateToken(user);
-            return Ok(token);
+            return Ok(new LoginResponseDto(token));
         }
 
         // To generate token

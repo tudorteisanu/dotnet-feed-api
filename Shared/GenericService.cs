@@ -34,13 +34,13 @@ namespace feedApi.Users
             return this.repository.Single(filter);
         }
 
-        public T Update(int id, T payload)
+        public T? Update(int id, T payload)
         {
             var entity = this.repository.FindOne(id);
 
             if (entity is null)
             {
-                throw new Exception("Entity not Found");
+                return null;
             }
 
             this.repository.Update(entity);

@@ -17,6 +17,7 @@ namespace feedApi.Users
         public T Add(T entity)
         {
 			this.DbSet.Add(entity);
+            this._dbContext.SaveChanges();
             return entity;
         }
 
@@ -29,7 +30,8 @@ namespace feedApi.Users
 			}
 
 			this.DbSet.Remove(entity);
-			return true;
+            this._dbContext.SaveChanges();
+            return true;
         }
 
         public IEnumerable<T> List()
@@ -50,7 +52,8 @@ namespace feedApi.Users
         public T Update(T entity)
         {
 			this.DbSet.Update(entity);
-			return entity;
+            this._dbContext.SaveChanges();
+            return entity;
         }
     }
 }
