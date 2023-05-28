@@ -1,4 +1,6 @@
-namespace feedApi.Users
+using feedApi.AppDbContextNS;
+
+namespace feedApi.Shared
 {
     public abstract class GenericService<T> : IGenericService<T> where T : class
     {

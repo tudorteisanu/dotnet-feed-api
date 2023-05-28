@@ -1,4 +1,7 @@
-﻿namespace feedApi.Users
+﻿using feedApi.AppDbContextNS;
+using feedApi.Shared;
+
+namespace feedApi.Users
 {
     public class UserService : GenericService<User>, IUserService
     {

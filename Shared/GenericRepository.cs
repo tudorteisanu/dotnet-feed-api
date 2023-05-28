@@ -1,7 +1,8 @@
 ﻿using System;
+using feedApi.AppDbContextNS;
 using Microsoft.EntityFrameworkCore;
 
-namespace feedApi.Users
+namespace feedApi.Shared
 {
 	public class GenericRepository<T> : IGenericRepository<T> where T : class
     {

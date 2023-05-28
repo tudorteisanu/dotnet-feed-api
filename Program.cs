@@ -1,4 +1,9 @@
-﻿using System.Text;
+﻿using System.Configuration;
+using System.Text;
+using feedApi.AppDbContextNS;
+using feedApi.Auth;
+using feedApi.Roles;
+using feedApi.Shared.Helpers;
 using feedApi.Users;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
@@ -12,6 +17,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 builder.Services.AddSwaggerGen(option =>
 {
     option.SwaggerDoc("v1", new OpenApiInfo { Title = "Demo API", Version = "v1" });
@@ -40,8 +46,12 @@ builder.Services.AddSwaggerGen(option =>
     });
 });
 builder.Services.AddDbContext<AppDbContext>(options =>
-            options.UseNpgsql(builder.Configuration.GetConnectionString("Postgres"))); 
+            options.UseNpgsql(builder.Configuration.GetConnectionString("Postgres")));
+
+// Services DI
 builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddScoped<IRoleService, RoleService>();
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options => {
     options.TokenValidationParameters = new TokenValidationParameters
@@ -55,6 +65,8 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]))
     };
 });
+
+builder.Configuration.GetSection(ApplicationSettings.Jwt).Bind(ApplicationSettings.JwtOptions);
 
 var app = builder.Build();
 

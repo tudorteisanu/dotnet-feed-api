@@ -1,15 +1,15 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace feedApi.User.dto
+namespace feedApi.Users.dto
 {
 	public class UserResponseDto
     {
-        [Required]
-        [StringLength(50, MinimumLength = 3)]
+        public int Id { get; set; }
+
         public string FirstName { get; set; }
 
-        [Required]
-        [StringLength(50, MinimumLength = 3)]
+        public string LastName { get; set; }
+
         public string Email { get; set; }
     }
 }

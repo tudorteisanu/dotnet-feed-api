@@ -1,4 +1,4 @@
-namespace feedApi.Users
+namespace feedApi.Shared
 {
     public interface IGenericService<T> where T : class
     {

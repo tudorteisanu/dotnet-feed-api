@@ -25,9 +25,19 @@
   <ItemGroup>
     <None Remove="User\" />
     <None Remove="Shared\Interfaces\" />
+    <None Remove="Role\" />
+    <None Remove="Role\dto\" />
+    <None Remove="Role\Interfaces\" />
+    <None Remove="Shared\Services\" />
+    <None Remove="Shared\Helpers\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="User\" />
     <Folder Include="Shared\Interfaces\" />
+    <Folder Include="Role\" />
+    <Folder Include="Role\dto\" />
+    <Folder Include="Role\Interfaces\" />
+    <Folder Include="Shared\Services\" />
+    <Folder Include="Shared\Helpers\" />
   </ItemGroup>
 </Project>

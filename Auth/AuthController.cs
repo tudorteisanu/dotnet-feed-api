@@ -1,72 +1,35 @@
 ﻿using System.IdentityModel.Tokens.Jwt;
 using System.Text;
-using feedapi.Auth.dto;
-using feedApi.Users;
+using feedApi.Auth.dto;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 
-namespace JWTAuth
+namespace feedApi.Auth
 {
-    [Route("[controller]")]
+    [Route("auth")]
     [ApiController]
     public class LoginController : ControllerBase
     {
-        private readonly IConfiguration _config;
-        private readonly IUserService userService;
+        private readonly IAuthService authService;
 
-        public LoginController(IConfiguration config, IUserService userService)
+        public LoginController(IAuthService authService)
         {
-            _config = config;
-            this.userService = userService;
+            this.authService = authService;
         }
 
         [AllowAnonymous]
-        [HttpPost]
-        public ActionResult Login([FromBody] LoginRequestDto userLogin)
+        [HttpPost("login", Name = "Login")]
+        public ActionResult<LoginResponseDto> Login([FromBody] LoginRequestDto userLogin)
         {
-            var user = Authenticate(userLogin);
-
-            if (user is null)
-            {
-                return NotFound("user not found");
-            }
-
-
-            //var isValidPassword = BCrypt.Net.BCrypt.Verify(userLogin.password, user.Password);
-
-            if (userLogin.password != user.Password)
-            {
-                return Unauthorized("Invalid Credentials");
-            }
-
-            var token = GenerateToken(user);
-            return Ok(new LoginResponseDto(token));
+            return this.authService.Login(userLogin);
         }
 
-        // To generate token
-        private string GenerateToken(User user)
+        [AllowAnonymous]
+        [HttpPost("register", Name = "Registration")]
+        public ActionResult<LoginResponseDto> Register([FromBody] RegisterRequestDto userLogin)
         {
-            var securityKey = new SymmetricSecurityKey(Encoding.UTF8
-                .GetBytes(_config["Jwt:Key"]));
-            var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
-
-            var token = new JwtSecurityToken(_config["Jwt:Issuer"],
-                _config["Jwt:Audience"],
-                expires: DateTime.Now.AddMinutes(15),
-                signingCredentials: credentials);
-
-
-            return new JwtSecurityTokenHandler().WriteToken(token);
-
-        }
-
-        //To authenticate user
-        private User Authenticate(LoginRequestDto userLogin)
-        {
-            var user = this.userService.FindByEmail(userLogin.email);
-            System.Diagnostics.Debug.WriteLine(user);
-            return user;
+            return this.authService.Register(userLogin);
         }
 
     }

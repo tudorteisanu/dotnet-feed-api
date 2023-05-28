@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace feedApi.User.dto
+namespace feedApi.Users.dto
 {
     public class CreateUserDto
     {
