@@ -1,13 +1,13 @@
-﻿using System.IdentityModel.Tokens.Jwt;
+﻿
 using System.Security.Claims;
 using System.Text;
 using AutoMapper;
+using ErrorManagement.Exceptions;
 using feedApi.Auth.dto;
+using feedApi.Shared.Services.EncryptionService;
 using feedApi.Shared.Services.Jwt;
 using feedApi.Users;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.IdentityModel.Tokens;
 
 namespace feedApi.Auth
 {
@@ -61,17 +61,11 @@ namespace feedApi.Auth
         private User Authenticate(LoginRequestDto userLogin)
         {
             var user = this.userService.FindByEmail(userLogin.email);
-            if (user is null)
-            {
-                throw new Exception("user not found");
-            }
-
-
-            var isValidPassword = BCrypt.Net.BCrypt.Verify(userLogin.password, user.Password);
+            var isValidPassword = EncryptionService.Verify(userLogin.password, user.Password);
 
             if (isValidPassword)
             {
-                throw new Exception("Invalid Credentials");
+                throw new UnauthorizedException("Invalid Credentials");
             }
 
             return user;

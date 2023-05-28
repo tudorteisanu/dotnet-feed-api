@@ -26,26 +26,21 @@ namespace feedApi.Shared
             return this.repository.List();
         }
 
-        public T? FindOne(int id)
+        public T FindOne(int id)
         {
             return this.repository.FindOne(id);
         }
 
-        public T? FindBy(Func<T, bool> filter)
+        public T FindBy(Func<T, bool> filter)
         {
             return this.repository.Single(filter);
         }
 
-        public T? Update(int id, T payload)
+        public T Update(int id, T payload)
         {
             var entity = this.repository.FindOne(id);
-
-            if (entity is null)
-            {
-                return null;
-            }
-
             this.repository.Update(entity);
+
             return entity;
         }
     }

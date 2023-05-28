@@ -20,24 +20,39 @@
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="7.0.6" />
+    <PackageReference Include="MailKit" Version="4.0.0" />
+    <PackageReference Include="MimeKit" Version="4.0.0" />
+    <PackageReference Include="EntityFrameworkCore.Exceptions.Common" Version="6.0.3" />
+    <PackageReference Include="EntityFrameworkCore.Exceptions.PostgreSQL" Version="6.0.3" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="User\" />
     <None Remove="Shared\Interfaces\" />
-    <None Remove="Role\" />
-    <None Remove="Role\dto\" />
-    <None Remove="Role\Interfaces\" />
     <None Remove="Shared\Services\" />
     <None Remove="Shared\Helpers\" />
+    <None Remove="Config\" />
+    <None Remove="Shared\Exceptions\" />
+    <None Remove="Shared\Middleware\" />
+    <None Remove="Shared\Extensions\" />
+    <None Remove="Modules\" />
+    <None Remove="Modules\Role\" />
+    <None Remove="Modules\User\" />
+    <None Remove="Modules\Auth\" />
+    <None Remove="Shared\Generics\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="User\" />
     <Folder Include="Shared\Interfaces\" />
-    <Folder Include="Role\" />
-    <Folder Include="Role\dto\" />
-    <Folder Include="Role\Interfaces\" />
     <Folder Include="Shared\Services\" />
     <Folder Include="Shared\Helpers\" />
+    <Folder Include="Config\" />
+    <Folder Include="Shared\Exceptions\" />
+    <Folder Include="Shared\Middleware\" />
+    <Folder Include="Shared\Extensions\" />
+    <Folder Include="Modules\" />
+    <Folder Include="Modules\Role\" />
+    <Folder Include="Modules\User\" />
+    <Folder Include="Modules\Auth\" />
+    <Folder Include="Shared\Generics\" />
   </ItemGroup>
 </Project>

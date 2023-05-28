@@ -8,10 +8,10 @@ namespace feedApi.Shared
 
         public IEnumerable<T> Find();
 
-        public T? FindOne(int id);
+        public T FindOne(int id);
 
-        public T? FindBy(Func<T, bool> filter);
+        public T FindBy(Func<T, bool> filter);
 
-        public T? Update(int id, T entity);
+        public T Update(int id, T entity);
     }
 }

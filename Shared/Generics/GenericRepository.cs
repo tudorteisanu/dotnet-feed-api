@@ -1,4 +1,5 @@
 ﻿using System;
+using ErrorManagement.Exceptions;
 using feedApi.AppDbContextNS;
 using Microsoft.EntityFrameworkCore;
 
@@ -27,7 +28,7 @@ namespace feedApi.Shared
             var entity = this.DbSet.Find(id);
 
 			if (entity is null) {
-				return false;
+				throw new NotFoundException("Entity not found!");
 			}
 
 			this.DbSet.Remove(entity);
@@ -40,14 +41,28 @@ namespace feedApi.Shared
             return this.DbSet.ToList();
         }
 
-        public T? FindOne(int id)
+        public T FindOne(int id)
         {
-            return this.DbSet.Find(id);
+            var entity = this.DbSet.Find(id);
+
+            if (entity is null)
+            {
+                throw new NotFoundException("Entity not found!");
+            }
+
+            return entity;
         }
 
         public T? Single(Func<T, bool> filter)
         {
-            return this.DbSet.SingleOrDefault(filter);
+            var entity = this.DbSet.SingleOrDefault(filter);
+
+            if (entity is null)
+            {
+                throw new NotFoundException("Entity not found!");
+            }
+
+            return entity;
         }
 
         public T Update(T entity)

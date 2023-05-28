@@ -8,9 +8,9 @@ namespace feedApi.Shared
 
         public IEnumerable<T> List();
 
-        public T? FindOne(int id);
+        public T FindOne(int id);
 
-        public T? Single(Func<T, bool> filter);
+        public T Single(Func<T, bool> filter);
 
         public T Update(T entity);
     }
