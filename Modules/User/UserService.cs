@@ -9,7 +9,7 @@ namespace feedApi.Users
         {
         }
 
-        public User? FindByEmail(string email)
+        public User FindByEmail(string email)
         {
             return this.repository.Single(user => user.Email == email);
         }

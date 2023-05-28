@@ -52,7 +52,7 @@ namespace feedApi.Shared
             return entity;
         }
 
-        public T? Single(Func<T, bool> filter)
+        public T Single(Func<T, bool> filter)
         {
             var entity = this.DbSet.SingleOrDefault(filter);
 
