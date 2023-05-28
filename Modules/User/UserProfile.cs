@@ -1,5 +1,4 @@
-﻿using System;
-using AutoMapper;
+﻿using AutoMapper;
 using feedApi.Shared.Services.EncryptionService;
 using feedApi.Users.dto;
 

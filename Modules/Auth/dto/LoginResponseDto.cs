@@ -1,8 +1,4 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
-using System.Text.Json;
-
-namespace feedApi.Auth.dto
+﻿namespace feedApi.Auth.dto
 {
 	public class LoginResponseDto
 	{

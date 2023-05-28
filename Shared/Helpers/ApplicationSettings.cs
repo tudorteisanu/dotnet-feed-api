@@ -1,5 +1,4 @@
-﻿using System;
-namespace feedApi.Shared.Helpers
+﻿namespace feedApi.Shared.Helpers
 {
 	public class ApplicationSettings
 	{

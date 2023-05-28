@@ -1,5 +1,4 @@
-﻿using System;
-using feedApi.Auth.dto;
+﻿using feedApi.Auth.dto;
 
 namespace feedApi.Auth
 {

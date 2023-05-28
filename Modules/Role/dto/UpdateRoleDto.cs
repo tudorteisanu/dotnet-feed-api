@@ -1,7 +1,4 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
-
-namespace feedApi.Roles.dto
+﻿namespace feedApi.Roles.dto
 {
 	public class UpdateRoleDto
 	{

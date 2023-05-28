@@ -1,16 +1,7 @@
-﻿using ErrorManagement.Configurations;
-using feedApi.AppDbContextNS;
-using feedApi.Auth;
-using feedApi.Roles;
-using feedApi.Users;
+﻿using feedApi.AppDbContextNS;
 using Microsoft.OpenApi.Models;
 
 using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.Mvc;
-using Swashbuckle.AspNetCore.SwaggerGen;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.IdentityModel.Tokens;
-using System.Text;
 
 namespace ServicesExtensions;
 

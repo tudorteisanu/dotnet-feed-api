@@ -1,5 +1,4 @@
-﻿using System;
-using AutoMapper;
+﻿using AutoMapper;
 using feedApi.Roles.dto;
 
 namespace feedApi.Roles

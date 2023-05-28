@@ -1,10 +1,4 @@
-﻿using System;
-using feedApi.Users;
-using Microsoft.IdentityModel.Tokens;
-using System.IdentityModel.Tokens.Jwt;
-using System.Text;
-
-namespace feedApi.Shared.Services.EncryptionService
+﻿namespace feedApi.Shared.Services.EncryptionService
 {
 	public class EncryptionService
 	{

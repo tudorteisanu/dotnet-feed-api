@@ -1,5 +1,4 @@
-﻿using ErrorManagement.Configurations;
-using Microsoft.OpenApi.Models;
+﻿using Microsoft.OpenApi.Models;
 
 namespace SwaggerExtensions;
 

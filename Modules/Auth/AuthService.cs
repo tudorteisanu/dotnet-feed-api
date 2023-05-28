@@ -1,13 +1,10 @@
-﻿
-using System.Security.Claims;
-using System.Text;
+﻿using System.Security.Claims;
 using AutoMapper;
 using ErrorManagement.Exceptions;
 using feedApi.Auth.dto;
 using feedApi.Shared.Services.EncryptionService;
 using feedApi.Shared.Services.Jwt;
 using feedApi.Users;
-using Microsoft.AspNetCore.Mvc;
 
 namespace feedApi.Auth
 {

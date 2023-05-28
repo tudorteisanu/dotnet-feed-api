@@ -1,14 +1,12 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿namespace feedApi.Roles.dto;
 
-namespace feedApi.Roles.dto
+public class RoleResponseDto
 {
-	public class RoleResponseDto
-    {
-        public int Id { get; set; }
+    public int Id { get; set; }
 
-        public string Name { get; set; }
+    public string Name { get; set; }
 
-        public string Alias { get; set; }
-    }
+    public string Alias { get; set; }
 }
+
 

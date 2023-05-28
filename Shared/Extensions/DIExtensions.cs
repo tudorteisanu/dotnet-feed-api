@@ -1,8 +1,6 @@
-﻿using ErrorManagement.Configurations;
-using feedApi.Auth;
+﻿using feedApi.Auth;
 using feedApi.Roles;
 using feedApi.Users;
-using Microsoft.OpenApi.Models;
 
 namespace DIExtensions;
 

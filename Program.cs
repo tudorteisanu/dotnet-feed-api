@@ -5,8 +5,6 @@ using DIExtensions;
 using ServicesExtensions;
 using feedApi.Shared.Helpers;
 using ErrorManagement.Configurations;
-using feedApi.AppDbContextNS;
-using Microsoft.EntityFrameworkCore;
 using JwtExtensions;
 
 var builder = WebApplication.CreateBuilder(args);

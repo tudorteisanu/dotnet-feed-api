@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace feedApi.Users.dto
+﻿namespace feedApi.Users.dto
 {
 	public class UserResponseDto
     {

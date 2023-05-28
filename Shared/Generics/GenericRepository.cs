@@ -1,5 +1,4 @@
-﻿using System;
-using ErrorManagement.Exceptions;
+﻿using ErrorManagement.Exceptions;
 using feedApi.AppDbContextNS;
 using Microsoft.EntityFrameworkCore;
 
